@@ -7,19 +7,19 @@ const isAnagram = require('../src/anagram');
 */
 
 test('isAnagram function exists', () => {
-  // Complete here
+  expect(isAnagram("", "")).toBeDefined();
 });
 
 test('"cinema" is an anagram of "iceman"', () => {
-  // Complete here
+  expect(isAnagram("cinema", "iceman")).toBe(true);
 });
 
 test('"Dormitory" is an anagram of "dirty room##"', () => {
-  // Complete here
+  expect(isAnagram("Dormitory", "dirty room##")).toBe(true);
 });
 
 test('"Hello" is NOT an anagram of "Aloha"', () => {
-  // Complete here
+  expect(isAnagram("Hello", "Aloha")).toBe(false);
 });
 
 /*
@@ -38,22 +38,22 @@ describe('Checking Names', () => {
   test('User is Jeff', () => {
     const user = 'Jeff';
     //Check if the user is Jeff
-    // Complete here
+    expect(user).toBe("Jeff");
   });
 
   test('User is Karen', () => {
     const user = 'Karen';
     //Check if the user is Karen
-    // Complete here
+    expect(user).toBe("Karen");
   });
 });
 
 test('Adds 2 + 2 to equal 4', () => {
-  // Complete here
+  expect(functions.add(2, 2)).toBe(4);
 });
 
 test('Adds 2 + 2 to NOT equal 5', () => {
-  // Complete here
+  expect(functions.add(2, 2)).not.toBe(5);
 });
 
 /*
@@ -70,35 +70,39 @@ test('Adds 2 + 2 to NOT equal 5', () => {
 // toBeFalsy matches anything that an if statement treats as false
 
 test('Should be null', () => {
-  // Complete here
+  expect(functions.isNull()).toBeNull();
 });
 
 // toBeFalsy
 test('Should be falsy', () => {
-  // Complete here
+  expect(functions.isNull()).toBeFalsy();
 });
 
 // toEqual
 test('User should be Marc Antoine object', () => {
-  // Complete here
+  expect(functions.createUser()).toEqual({
+    firstName: "Marc",
+    lastName: "Antoine"
+  });
 });
 
 // Less than and greater than
 test('Should be under or equal 1000', () => {
   const load1 = 500;
   const load2 = 500;
-  // Complete here
+  expect(functions.checkValue(load1)).toBeLessThanOrEqual(1000);
+  expect(functions.checkValue(load2)).toBeLessThan(1000);
 });
 
 // Regex
 test('There is no I in the word team', () => {
-  // Complete here
+  expect(functions.checkValue('team')).not.toMatch(/I/);
 });
 
 // Arrays
 test('Admin should be in usernames', () => {
   usernames = ['john', 'karen', 'admin'];
-  // Complete here
+  expect(usernames).toContain('admin');
 });
 
 // Working with async data
@@ -106,7 +110,9 @@ test('Admin should be in usernames', () => {
 // Async Await since ES7
 test('User fetched name should be Leanne Graham', async () => {
   const data = await functions.fetchUser();
-  // Complete here
+  expect(data).toMatchObject({
+    name: "Leanne Graham"
+  });
 });
 
 /*
@@ -116,15 +122,16 @@ test('User fetched name should be Leanne Graham', async () => {
 */
 
 const reverseString = require('../src/reversestr');
+const { isNull } = require('../src/variousfunctions');
 
 test('reverseString function exists', () => {
-  // Complete here
+  expect(reverseString("")).toBeDefined();
 });
 
 test('String reverses', () => {
-  // Complete here
+  expect(reverseString('stonks')).toBe('sknots');
 });
 
 test('String reverses with uppercase', () => {
-  // Complete here
+  expect(reverseString('STONKS')).toBe('sknots');
 });
